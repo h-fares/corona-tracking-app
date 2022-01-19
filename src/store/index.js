@@ -1,15 +1,18 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from "vue";
+import Vuex from "vuex";
 
-Vue.use(Vuex)
+import * as request from "@/store/modules/request.js";
+import * as countries from "@/store/modules/countries.js";
+import * as date from "@/store/modules/date.js";
+import * as global from "@/store/modules/global.js";
+
+Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
   modules: {
+    request,
+    countries,
+    date,
+    global
   }
-})
+});

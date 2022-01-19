@@ -1,14 +1,46 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+  <div id="app" class="container-fluid main-container">
+    <nav-bar></nav-bar>
+    <transition name="fade" mode="out-in">
+      <router-view />
+    </transition>
+    <main-footer></main-footer>
   </div>
 </template>
 
-<style>
+<script>
+import NavBar from "./components/NavBar";
+import MainFooter from "./components/MainFooter";
+export default {
+  components: {
+    NavBar,
+    MainFooter
+  }
+};
+</script>
+
+<style lang="scss">
+  @import "style";
+html,
+body {
+  height: 100%;
+  position: relative;
+  background-color: $background-color-primary;
+}
+* {
+  box-sizing: border-box;
+}
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+.main-container {
+  min-height: 100vh; /* will cover the 100% of viewport */
+  overflow: hidden;
+  display: block;
+  position: relative;
+  padding-bottom: 100px; /* height of your footer */
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -17,16 +49,14 @@
   color: #2c3e50;
 }
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+  .fade-enter {
+    opacity: 0;
+  }
+  .fade-leave-to {
+    opacity: 0;
+  }
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 0.5s ease-out;
+  }
 </style>

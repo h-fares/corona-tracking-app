@@ -1,14 +1,15 @@
 <template>
   <div>
-    <chart-map></chart-map>
+    <countries></countries>
   </div>
 </template>
 
 <script>
-import ChartMap from "../components/ChartMap";
+import Countries from "../components/Countries";
 export default {
+  name: "CountriesList",
   components: {
-    ChartMap
+    Countries
   }
 };
 </script>
